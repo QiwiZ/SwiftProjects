@@ -8,7 +8,14 @@
 import Foundation
 
 struct Result: Codable {
+    let metaData: MetaData
+    let countries: [Country]
     
+    init(from decoder: Decoder) throws {
+        var container = try decoder.unkeyedContainer()
+        metaData = try container.decode(MetaData.self)
+        countries = try container.decode([Country].self)
+    }
 }
 
 struct MetaData: Codable {
@@ -18,7 +25,15 @@ struct MetaData: Codable {
     let total: Int
 }
 
-struct Country: Codable {
+struct Country: Codable, Comparable {
+    static func == (lhs: Country, rhs: Country) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    static func < (lhs: Country, rhs: Country) -> Bool {
+        lhs.name < rhs.name
+    }
+    
     let id: String
     let iso2Code: String
     let name: String
@@ -41,6 +56,6 @@ struct Country: Codable {
 
 struct Subinformation: Codable {
     let id: String
-    let iso2Code: String
+    let iso2code: String
     let value: String
 }

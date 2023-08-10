@@ -13,6 +13,7 @@
 		4B15E3892A83F64A00298BAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B15E3882A83F64A00298BAA /* Preview Assets.xcassets */; };
 		4B15E3902A83F67D00298BAA /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E38F2A83F67D00298BAA /* FileManager-DocumentsDirectory.swift */; };
 		4B15E3922A83F6A600298BAA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3912A83F6A600298BAA /* Result.swift */; };
+		4B15E3AE2A8578CD00298BAA /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3AD2A8578CD00298BAA /* ContentViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4B15E3882A83F64A00298BAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4B15E38F2A83F67D00298BAA /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		4B15E3912A83F6A600298BAA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4B15E3AD2A8578CD00298BAA /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				4B15E3812A83F64800298BAA /* CountryRandomizerApp.swift */,
 				4B15E3912A83F6A600298BAA /* Result.swift */,
 				4B15E3832A83F64800298BAA /* ContentView.swift */,
+				4B15E3AD2A8578CD00298BAA /* ContentViewViewModel.swift */,
 				4B15E38F2A83F67D00298BAA /* FileManager-DocumentsDirectory.swift */,
 				4B15E3852A83F64A00298BAA /* Assets.xcassets */,
 				4B15E3872A83F64A00298BAA /* Preview Content */,
@@ -147,6 +150,7 @@
 				4B15E3842A83F64800298BAA /* ContentView.swift in Sources */,
 				4B15E3922A83F6A600298BAA /* Result.swift in Sources */,
 				4B15E3822A83F64800298BAA /* CountryRandomizerApp.swift in Sources */,
+				4B15E3AE2A8578CD00298BAA /* ContentViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

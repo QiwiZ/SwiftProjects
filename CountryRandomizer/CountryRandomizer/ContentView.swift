@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button("Generate random country") {
+                viewModel.randomizeCountry()
+            }
+            
+            if (viewModel.randomCountry != nil) {
+                Text(viewModel.randomCountry!.name)
+            }
         }
         .padding()
+        .task {
+            if viewModel.countries.isEmpty {
+                await viewModel.fetchWorldCountries()
+            }
+        }
     }
 }
 
