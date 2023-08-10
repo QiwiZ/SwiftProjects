@@ -12,13 +12,18 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Button("Generate random country") {
-                viewModel.randomizeCountry()
-            }
-            
             if (viewModel.randomCountry != nil) {
                 Text(viewModel.randomCountry!.name)
             }
+            
+            Spacer()
+            
+            Button("Generate random country") {
+                viewModel.randomizeCountry()
+            }.padding()
+                .background(.blue)
+                .foregroundColor(.white)
+                .clipShape(Capsule())
         }
         .padding()
         .task {
