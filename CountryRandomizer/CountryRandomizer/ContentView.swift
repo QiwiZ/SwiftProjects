@@ -14,11 +14,12 @@ struct ContentView: View {
         VStack {
             if (viewModel.randomCountry != nil) {
                 Text(viewModel.randomCountry!.name)
+                    .font(.largeTitle)
             }
             
             Spacer()
             
-            Button("Generate random country") {
+            Button("Randomize country") {
                 viewModel.randomizeCountry()
             }.padding()
                 .background(.blue)
