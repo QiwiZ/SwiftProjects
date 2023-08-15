@@ -17,7 +17,7 @@ struct ContentView: View {
                     ForEach(viewModel.images.sorted()) { image in
                         HStack {
                             NavigationLink {
-                                PersonDetailView(image:viewModel.loadImageFromDisc(savePath: image.savePath), name: image.name)
+                                PersonDetailView(image:viewModel.loadImageFromDisc(savePath: image.savePath), imageInformation: image)
                             } label: {
                                 viewModel.loadImageFromDisc(savePath: image.savePath ).resizable().scaledToFit()
                                 Text(image.name)

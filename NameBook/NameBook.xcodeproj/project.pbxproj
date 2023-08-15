@@ -18,6 +18,8 @@
 		4B15E3D82A894A4600298BAA /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3D72A894A4600298BAA /* PersonDetailView.swift */; };
 		4B15E3DC2A89511000298BAA /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3DB2A89511000298BAA /* ContentViewViewModel.swift */; };
 		4B15E3DE2A8952AD00298BAA /* ImageInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3DD2A8952AD00298BAA /* ImageInformation.swift */; };
+		4B15E3E02A8A8D8C00298BAA /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3DF2A8A8D8C00298BAA /* LocationFetcher.swift */; };
+		4B15E3E22A8B0D2600298BAA /* PersonLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3E12A8B0D2600298BAA /* PersonLocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		4B15E3D72A894A4600298BAA /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		4B15E3DB2A89511000298BAA /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
 		4B15E3DD2A8952AD00298BAA /* ImageInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInformation.swift; sourceTree = "<group>"; };
+		4B15E3DF2A8A8D8C00298BAA /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		4B15E3E12A8B0D2600298BAA /* PersonLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonLocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +71,10 @@
 			children = (
 				4B15E3BB2A892AA900298BAA /* NameBookApp.swift */,
 				4B15E3BD2A892AA900298BAA /* ContentView.swift */,
+				4B15E3DF2A8A8D8C00298BAA /* LocationFetcher.swift */,
 				4B15E3DB2A89511000298BAA /* ContentViewViewModel.swift */,
 				4B15E3D72A894A4600298BAA /* PersonDetailView.swift */,
+				4B15E3E12A8B0D2600298BAA /* PersonLocationView.swift */,
 				4B15E3CD2A89313000298BAA /* NameFormView.swift */,
 				4B15E3DD2A8952AD00298BAA /* ImageInformation.swift */,
 				4B15E3CF2A8935A900298BAA /* ImageSaver.swift */,
@@ -158,8 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B15E3E22A8B0D2600298BAA /* PersonLocationView.swift in Sources */,
 				4B15E3CE2A89313000298BAA /* NameFormView.swift in Sources */,
 				4B15E3D22A89372800298BAA /* FileManager-DocumentsDirectory.swift in Sources */,
+				4B15E3E02A8A8D8C00298BAA /* LocationFetcher.swift in Sources */,
 				4B15E3DE2A8952AD00298BAA /* ImageInformation.swift in Sources */,
 				4B15E3D02A8935A900298BAA /* ImageSaver.swift in Sources */,
 				4B15E3CC2A892C5800298BAA /* ImagePicker.swift in Sources */,
@@ -297,6 +305,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NameBook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location information to keep track of where you took your pictures.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -325,6 +334,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NameBook/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location information to keep track of where you took your pictures.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

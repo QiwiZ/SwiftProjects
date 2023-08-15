@@ -13,16 +13,25 @@ struct NameFormView: View {
     @State private var nameOfPerson = ""
     @Binding var images: [ImageInformation]
     
+    let locationFetcher = LocationFetcher()
+    
     var body: some View {
         NavigationView {
             Form {
                 TextField("Enter the persons name", text: $nameOfPerson)
-            }.navigationTitle("Add a new name")
-                .toolbar {
+            }
+            .navigationTitle("Add a new name")
+            .toolbar {
+                Group {
+                    Button("Track the location for this picture") {
+                        self.locationFetcher.start()
+                    }
                     Button("Save") {
                         save()
                     }.disabled(nameOfPerson.isEmpty)
                 }
+                
+            }
         }
     }
     
@@ -30,7 +39,7 @@ struct NameFormView: View {
         let imageSaver = ImageSaver()
         let savePath = FileManager.documentsDirectory.appendingPathComponent(nameOfPerson)
         imageSaver.writePhotoToDisc(image: uiImage, savePath: savePath)
-        images.append(ImageInformation(name: nameOfPerson))
+        images.append(ImageInformation(name: nameOfPerson, latitude: locationFetcher.lastKnownLocation?.latitude, longitude: locationFetcher.lastKnownLocation?.longitude))
         dismiss()
     }
 }
