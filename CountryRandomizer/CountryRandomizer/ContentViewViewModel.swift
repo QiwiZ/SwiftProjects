@@ -40,7 +40,6 @@ extension ContentView {
                 countries = items.countries.filter { country in
                     country.region.value != "Aggregates"
                 }
-                print(countries)
             } catch {
                 print(error)
             }
