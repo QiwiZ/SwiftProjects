@@ -25,7 +25,7 @@ struct MetaData: Codable {
     let total: Int
 }
 
-struct Country: Codable, Comparable {
+struct Country: Codable, Comparable, Identifiable {
     static func == (lhs: Country, rhs: Country) -> Bool {
         lhs.id == rhs.id
     }

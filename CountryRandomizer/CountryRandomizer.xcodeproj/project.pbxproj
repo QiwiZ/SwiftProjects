@@ -14,6 +14,8 @@
 		4B15E3902A83F67D00298BAA /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E38F2A83F67D00298BAA /* FileManager-DocumentsDirectory.swift */; };
 		4B15E3922A83F6A600298BAA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3912A83F6A600298BAA /* Result.swift */; };
 		4B15E3AE2A8578CD00298BAA /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15E3AD2A8578CD00298BAA /* ContentViewViewModel.swift */; };
+		4B9052382A8C429E00A4B0F3 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9052372A8C429E00A4B0F3 /* Background.swift */; };
+		4B90523A2A8C42F800A4B0F3 /* AdditionalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9052392A8C42F800A4B0F3 /* AdditionalInformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		4B15E38F2A83F67D00298BAA /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		4B15E3912A83F6A600298BAA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4B15E3AD2A8578CD00298BAA /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
+		4B9052372A8C429E00A4B0F3 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		4B9052392A8C42F800A4B0F3 /* AdditionalInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +61,13 @@
 		4B15E3802A83F64800298BAA /* CountryRandomizer */ = {
 			isa = PBXGroup;
 			children = (
+				4B9052372A8C429E00A4B0F3 /* Background.swift */,
 				4B15E3812A83F64800298BAA /* CountryRandomizerApp.swift */,
 				4B15E3912A83F6A600298BAA /* Result.swift */,
 				4B15E3832A83F64800298BAA /* ContentView.swift */,
 				4B15E3AD2A8578CD00298BAA /* ContentViewViewModel.swift */,
 				4B15E38F2A83F67D00298BAA /* FileManager-DocumentsDirectory.swift */,
+				4B9052392A8C42F800A4B0F3 /* AdditionalInformationView.swift */,
 				4B15E3852A83F64A00298BAA /* Assets.xcassets */,
 				4B15E3872A83F64A00298BAA /* Preview Content */,
 			);
@@ -148,9 +154,11 @@
 			files = (
 				4B15E3902A83F67D00298BAA /* FileManager-DocumentsDirectory.swift in Sources */,
 				4B15E3842A83F64800298BAA /* ContentView.swift in Sources */,
+				4B90523A2A8C42F800A4B0F3 /* AdditionalInformationView.swift in Sources */,
 				4B15E3922A83F6A600298BAA /* Result.swift in Sources */,
 				4B15E3822A83F64800298BAA /* CountryRandomizerApp.swift in Sources */,
 				4B15E3AE2A8578CD00298BAA /* ContentViewViewModel.swift in Sources */,
+				4B9052382A8C429E00A4B0F3 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,11 +284,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CountryRandomizer/Preview Content\"";
+				DEVELOPMENT_TEAM = 9Z26JK39P5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Country Randomizer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -293,6 +305,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.Saxl.Julian.CountryRandomizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,11 +317,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CountryRandomizer/Preview Content\"";
+				DEVELOPMENT_TEAM = 9Z26JK39P5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Country Randomizer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -321,6 +338,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.Saxl.Julian.CountryRandomizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
