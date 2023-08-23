@@ -11,6 +11,7 @@ import CoreImage.CIFilterBuiltins
 struct MeView: View {
     @State private var name = "JS"
     @State private var email = "j.s@mail.com"
+    @State private var qrCode = UIImage()
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     
@@ -23,12 +24,24 @@ struct MeView: View {
                 TextField("Email", text: $email)
                     .textContentType(.emailAddress)
                     .font(.title)
-                Image(uiImage: generateQrCode(from: "\(name)\n\(email)"))
+                Image(uiImage: qrCode)
                     .interpolation(.none)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
-            }.navigationTitle("Your code")
+                    .contextMenu {
+                        Button {
+                            let imageSaver = ImageSaver()
+                            imageSaver.writePhotoToAlbum(image: qrCode)
+                        } label: {
+                            Label("Save to Photos", systemImage: "square.and.arrow.down")
+                        }
+                    }
+            }
+            .navigationTitle("Your code")
+            .onAppear(perform: updateCode)
+            .onChange(of: name) {_ in updateCode() }
+            .onChange(of: email) {_ in updateCode() }
         }
     }
     
@@ -42,6 +55,10 @@ struct MeView: View {
         }
         
         return UIImage(systemName: "xmark.circle") ?? UIImage()
+    }
+    
+    func updateCode() {
+        qrCode = generateQrCode(from: "\(name)\n\(email)")
     }
 }
 

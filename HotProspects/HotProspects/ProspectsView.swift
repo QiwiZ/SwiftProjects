@@ -7,9 +7,12 @@
 
 import CodeScanner
 import SwiftUI
+import UserNotifications
 
 struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
+    
+    @State private var isShowingScanner = false
 
     enum FilterType {
         case none, contacted, uncontacted
@@ -39,9 +42,7 @@ struct ProspectsView: View {
         }
     }
     
-    @State private var isShowingScanner = false
-    
-    func handeScan(result: Result<ScanResult, ScanError>) {
+    func handleScan(result: Result<ScanResult, ScanError>) {
         isShowingScanner = false
         switch result {
         case .success(let result):
@@ -50,10 +51,41 @@ struct ProspectsView: View {
             let person = Prospect()
             person.name = details[0]
             person.email = details[1]
-            prospects.people.append(person)
-            
+            prospects.add(person)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
+        }
+    }
+    
+    func addNotification(for prospect: Prospect) {
+        let center = UNUserNotificationCenter.current()
+        
+        let addRequest = {
+            let content = UNMutableNotificationContent()
+            content.title = "Contact \(prospect.name)"
+            content.subtitle = prospect.email
+            content.sound = UNNotificationSound.default
+            
+            var dateComponents = DateComponents()
+            dateComponents.hour = 9
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
+        
+        center.getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                addRequest()
+            } else {
+                center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        addRequest()
+                    } else {
+                        print("Hm I guess not then.")
+                    }
+                }
+            }
         }
     }
     
@@ -80,6 +112,11 @@ struct ProspectsView: View {
                             } label: {
                                 Label("Mark contacted", systemImage: "person.crop.circle.fill.badge.checkmark")
                             }.tint(.green)
+                            Button {
+                                addNotification(for: prospect)
+                            } label: {
+                                Label("Remind me", systemImage: "bell")
+                            }.tint(.orange)
                         }
                     }
                 }
@@ -96,7 +133,7 @@ struct ProspectsView: View {
                     CodeScannerView(
                         codeTypes: [.qr],
                         simulatedData: "Paul Hudson\npaul@hackingwithswift.com",
-                        completion: handeScan)
+                        completion: handleScan)
                 }
         }
     }
