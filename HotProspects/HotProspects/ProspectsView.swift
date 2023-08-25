@@ -13,6 +13,12 @@ struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
     
     @State private var isShowingScanner = false
+    @State private var isShowingConfirmationDialog = false
+    
+    enum SortType {
+        case name, date
+    }
+    @State private var sorting: SortType = .name
 
     enum FilterType {
         case none, contacted, uncontacted
@@ -32,13 +38,24 @@ struct ProspectsView: View {
     }
     
     var filteredProspects: [Prospect] {
+        var filtered: [Prospect]
         switch filter {
         case .none:
-            return prospects.people
+            filtered = prospects.people
         case .contacted:
-            return prospects.people.filter {$0.isContacted}
+            filtered = prospects.people.filter {$0.isContacted}
         case .uncontacted:
-            return prospects.people.filter {!$0.isContacted}
+            filtered = prospects.people.filter {!$0.isContacted}
+        }
+        switch sorting {
+        case .date:
+            return filtered.sorted {
+                $0.date < $1.date
+            }
+        case .name:
+            return filtered.sorted {
+                $0.name < $1.name
+            }
         }
     }
     
@@ -137,12 +154,28 @@ struct ProspectsView: View {
                     } label: {
                         Label("Scan", systemImage: "qrcode.viewfinder")
                     }
+                    Button {
+                        isShowingConfirmationDialog = true
+                    } label: {
+                        Label("Sort", systemImage: "line.3.horizontal.decrease.circle")
+                    }
                 }
                 .sheet(isPresented: $isShowingScanner) {
                     CodeScannerView(
                         codeTypes: [.qr],
                         simulatedData: "Paul Hudson\npaul@hackingwithswift.com",
                         completion: handleScan)
+                }
+                .confirmationDialog("", isPresented: $isShowingConfirmationDialog) {
+                    Button("Name") {
+                        sorting = .name
+                    }
+                    Button("Date") {
+                        sorting = .date
+                    }
+                    Button("Cancel", role: .cancel) {}
+                } message: {
+                    Text("Sort by")
                 }
         }
     }

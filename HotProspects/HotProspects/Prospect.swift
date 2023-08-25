@@ -11,6 +11,7 @@ class Prospect: Codable, Identifiable {
     var id = UUID()
     var name = "Anonymous"
     var email = ""
+    var date = Date.now
     fileprivate(set) var isContacted = false
 }
 
