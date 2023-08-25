@@ -17,6 +17,7 @@
 		4B9052452A93C59F00A4B0F3 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9052442A93C59F00A4B0F3 /* Prospect.swift */; };
 		4B9052482A951A9000A4B0F3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 4B9052472A951A9000A4B0F3 /* CodeScanner */; };
 		4B90524A2A96BDE800A4B0F3 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9052492A96BDE800A4B0F3 /* ImageSaver.swift */; };
+		4B9052502A99228E00A4B0F3 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B90524F2A99228E00A4B0F3 /* FileManager-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		4B9052422A92B4AE00A4B0F3 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		4B9052442A93C59F00A4B0F3 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
 		4B9052492A96BDE800A4B0F3 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		4B90524F2A99228E00A4B0F3 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FileManager-DocumentsDirectory.swift"; path = "../FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		4B15E3EE2A8BDE1C00298BAA /* HotProspects */ = {
 			isa = PBXGroup;
 			children = (
+				4B90524F2A99228E00A4B0F3 /* FileManager-DocumentsDirectory.swift */,
 				4B15E3EF2A8BDE1C00298BAA /* HotProspectsApp.swift */,
 				4B15E3F12A8BDE1C00298BAA /* ContentView.swift */,
 				4B9052442A93C59F00A4B0F3 /* Prospect.swift */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9052432A92B4AE00A4B0F3 /* MeView.swift in Sources */,
+				4B9052502A99228E00A4B0F3 /* FileManager-DocumentsDirectory.swift in Sources */,
 				4B90524A2A96BDE800A4B0F3 /* ImageSaver.swift in Sources */,
 				4B9052452A93C59F00A4B0F3 /* Prospect.swift in Sources */,
 				4B9052412A92B48400A4B0F3 /* ProspectsView.swift in Sources */,
