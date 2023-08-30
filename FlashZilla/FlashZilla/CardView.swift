@@ -13,6 +13,7 @@ struct CardView: View {
     
     let card: Card
     var removal: (() -> Void)? = nil
+    var reAddCard: (() -> Void)? = nil
     
     @State private var feedback = UINotificationFeedbackGenerator()
     @State private var isShowingAnswer = false
@@ -29,7 +30,7 @@ struct CardView: View {
                 .background(differentiateWithoutColor
                             ? nil
                             : RoundedRectangle(cornerRadius: 25, style: .continuous)
-                        .fill(offset.width > 0 ? .green : .red)
+                    .fill(offset.width > 0 ? .green : offset.width < 0 ? .red : .white)
                 )
                 .shadow(radius: 10)
             VStack {
@@ -65,6 +66,7 @@ struct CardView: View {
                     if (abs(offset.width) > 100) {
                         if offset.width < 0 {
                             feedback.notificationOccurred(.error)
+                            reAddCard?()
                         }
                         removal?()
                     } else {
