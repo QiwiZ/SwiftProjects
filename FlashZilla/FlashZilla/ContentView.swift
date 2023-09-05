@@ -4,7 +4,7 @@
 //
 //  Created by Julian Saxl on 2023-08-26.
 //
-import CoreHaptics
+
 import SwiftUI
 
 extension View {
