@@ -19,7 +19,6 @@ struct ContentView: View {
         } else {
             return resorts.filter {$0.name.localizedCaseInsensitiveContains(searchText)}
         }
-        
     }
 
     var body: some View {

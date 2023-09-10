@@ -20,6 +20,7 @@
 		4BC289BA2AAB76BB000BD5F2 /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289B92AAB76BB000BD5F2 /* ResortDetailsView.swift */; };
 		4BC289BC2AACD318000BD5F2 /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289BB2AACD318000BD5F2 /* Facility.swift */; };
 		4BC289BE2AAD1728000BD5F2 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289BD2AAD1728000BD5F2 /* Favourites.swift */; };
+		4BC289C02AAE3984000BD5F2 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289BF2AAE3984000BD5F2 /* FileManager-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4BC289B92AAB76BB000BD5F2 /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 		4BC289BB2AACD318000BD5F2 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		4BC289BD2AAD1728000BD5F2 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
+		4BC289BF2AAE3984000BD5F2 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				4B9052ED2AA8E4F700A4B0F3 /* ContentView.swift */,
 				4BC289B52AAB73AB000BD5F2 /* ResortView.swift */,
 				4BC289BD2AAD1728000BD5F2 /* Favourites.swift */,
+				4BC289BF2AAE3984000BD5F2 /* FileManager-DocumentsDirectory.swift */,
 				4BC289BB2AACD318000BD5F2 /* Facility.swift */,
 				4BC289B72AAB75D9000BD5F2 /* SkiDetailsView.swift */,
 				4BC289B92AAB76BB000BD5F2 /* ResortDetailsView.swift */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BC289B42AAB7090000BD5F2 /* WelcomeView.swift in Sources */,
+				4BC289C02AAE3984000BD5F2 /* FileManager-DocumentsDirectory.swift in Sources */,
 				4BC289B82AAB75D9000BD5F2 /* SkiDetailsView.swift in Sources */,
 				4BC289BA2AAB76BB000BD5F2 /* ResortDetailsView.swift in Sources */,
 				4BC289BC2AACD318000BD5F2 /* Facility.swift in Sources */,
