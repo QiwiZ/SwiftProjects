@@ -1,0 +1,5 @@
+{
+    "Book": ["Fantasy", "Horror"],
+    "Game": ["FPS", "Platformer"],
+    "Movie": ["Horror", "Documentary"]
+}

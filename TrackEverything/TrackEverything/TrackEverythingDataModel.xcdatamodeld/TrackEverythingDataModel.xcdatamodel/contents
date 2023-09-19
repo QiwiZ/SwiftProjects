@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="MediaEntity" representedClassName="MediaEntity" syncable="YES" codeGenerationType="class">
+    <entity name="MediaEntity" representedClassName="MediaEntity" syncable="YES">
         <attribute name="creator" optional="YES" attributeType="String"/>
+        <attribute name="finished" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="genre" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
-        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="mediaEntity" inverseEntity="Note"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="mediaEntity" inverseEntity="Note"/>
     </entity>
-    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="mediaEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MediaEntity" inverseName="notes" inverseEntity="MediaEntity"/>
     </entity>
