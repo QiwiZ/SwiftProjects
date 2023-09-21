@@ -29,7 +29,9 @@ struct MediaEntityDetailView: View {
             }
             
             Text(mediaEntity.wrappedCreator)
+                .foregroundColor(.secondary)
             Text(mediaEntity.wrappedGenre)
+                .foregroundColor(.secondary)
             
             List {
                 ForEach(mediaEntity.notesArray) { note in
@@ -71,8 +73,8 @@ struct MediaEntityDetailView: View {
     
     func deleteNote(at offsets: IndexSet) {
         for index in offsets {
-            let entity = mediaEntity.notesArray[index]
-            moc.delete(entity)
+            let note = mediaEntity.notesArray[index]
+            moc.delete(note)
             
             if moc.hasChanges {
                 try? moc.save()

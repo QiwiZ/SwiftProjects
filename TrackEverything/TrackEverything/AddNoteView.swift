@@ -28,7 +28,7 @@ struct AddNoteView: View {
         let note = Note(context: moc)
         note.mediaEntity = mediaEntity
         note.creationDate = Date.now
-        note.text = noteText
+        note.text = noteText.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if moc.hasChanges {
             try? moc.save()

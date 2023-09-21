@@ -63,6 +63,10 @@ struct TrackedEntityView: View {
                     MediaEntityDetailView(mediaEntity: entity)
                 } label: {
                     HStack {
+                        if entity.favourite {
+                            Image(systemName: "heart.fill")
+                                .foregroundColor(.red)
+                        }
                         Text(entity.wrappedTitle)
                         Spacer()
                         if entity.finished {
@@ -70,7 +74,7 @@ struct TrackedEntityView: View {
                                 .allowsHitTesting(false)
                         }
                     }
-                }.swipeActions {
+                }.swipeActions(edge: .trailing) {
                     if entity.finished {
                         Button {
                             entity.finished.toggle()
@@ -94,6 +98,16 @@ struct TrackedEntityView: View {
                         }.tint(.green)
                     }
                     
+                    Button {
+                        moc.delete(entity)
+                        if moc.hasChanges {
+                            try? moc.save()
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }.tint(.red)
+                }
+                .swipeActions(edge: .leading) {
                     if entity.favourite {
                         Button {
                             entity.favourite.toggle()
@@ -128,8 +142,8 @@ struct TrackedEntityView: View {
         }
         .confirmationDialog("", isPresented: $isShowingSortingDialog) {
             Button("Title"){ sorting = .title}
-            Button("Rating Asc"){ sorting = .ratingAsc }
-            Button("Rating Desc"){ sorting = .ratingDesc }
+            Button("Rating ↑"){ sorting = .ratingAsc }
+            Button("Rating ↓"){ sorting = .ratingDesc }
             Button("Genre"){ sorting = .genre }
         }
     }
