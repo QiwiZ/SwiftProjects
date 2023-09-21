@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RatingView: View {
-    @Binding var rating: Int
+    @Binding var rating: Int16
     
     var label = ""
     var maximumRating = 5
@@ -29,7 +29,7 @@ struct RatingView: View {
                     image(for: number)
                     .foregroundColor(number > rating ? offColor : onColor)
                     .onTapGesture {
-                        rating = number
+                        rating = Int16(number)
                     }
                     .accessibilityElement()
                     .accessibilityLabel(label)

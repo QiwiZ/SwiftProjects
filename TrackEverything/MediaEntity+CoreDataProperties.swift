@@ -24,6 +24,7 @@ extension MediaEntity {
     @NSManaged public var type: String?
     @NSManaged public var year: Int16
     @NSManaged public var finished: Bool
+    @NSManaged public var favourite: Bool
     @NSManaged public var notes: NSSet?
 
     public var wrappedCreator: String {

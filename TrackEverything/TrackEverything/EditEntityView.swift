@@ -1,25 +1,38 @@
 //
-//  AddEntityView.swift
+//  EditEntityView.swift
 //  TrackEverything
 //
-//  Created by Julian Saxl on 2023-09-11.
+//  Created by Julian Saxl on 2023-09-19.
 //
 
 import SwiftUI
 
-struct AddEntityView: View {
+struct EditEntityView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
-    @State private var creator = ""
-    @State private var title = ""
-    @State var entityType: String
-    @State private var releaseYear = ""
-    @State private var genre = ""
-    @State private var finished = false
-    @State private var rating = Int16(3)
+    private var mediaEntity: MediaEntity
+    @State private var creator: String
+    @State private var title: String
+    @State private var entityType: String
+    @State private var releaseYear: String
+    @State private var genre: String
+    @State private var finished: Bool
+    @State private var rating: Int16
+    
+    init(_ mediaEntity: MediaEntity) {
+        self.mediaEntity = mediaEntity
+        _creator = State(initialValue: mediaEntity.wrappedCreator)
+        _title = State(initialValue: mediaEntity.wrappedTitle)
+        _entityType = State(initialValue: mediaEntity.wrappedType)
+        _releaseYear = State(initialValue: String(mediaEntity.year))
+        _genre = State(initialValue: mediaEntity.wrappedGenre)
+        _finished = State(initialValue: mediaEntity.finished)
+        _rating = State(initialValue: mediaEntity.rating)
+    }
     
     var body: some View {
+        
         Form {
             TextField("Creator", text: $creator)
             TextField("Title", text: $title)
@@ -41,19 +54,16 @@ struct AddEntityView: View {
             
             Section {
                 Button("Save") {
-                    let entity = MediaEntity(context: moc)
-                    entity.id = UUID()
-                    entity.creator = creator
-                    entity.title = title
-                    entity.type = entityType
-                    entity.year = Int16(releaseYear)!
-                    entity.genre = genre
-                    entity.finished = finished
-                    entity.favourite = false
+                    mediaEntity.creator = creator
+                    mediaEntity.title = title
+                    mediaEntity.type = entityType
+                    mediaEntity.year = Int16(releaseYear)!
+                    mediaEntity.genre = genre
+                    mediaEntity.finished = finished
                     if finished {
-                        entity.rating = Int16(rating)
+                        mediaEntity.rating = Int16(rating)
                     } else {
-                        entity.rating = 0
+                        mediaEntity.rating = 0
                     }
                     
                     if moc.hasChanges {
@@ -80,11 +90,5 @@ struct AddEntityView: View {
     
     func isValidEntry() -> Bool {
          return isValidCreator() && isValidTitle() && isValidYear()
-    }
-}
-
-struct AddEntityView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddEntityView(entityType: "Movie")
     }
 }

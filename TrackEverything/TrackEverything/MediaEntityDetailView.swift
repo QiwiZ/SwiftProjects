@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MediaEntityDetailView: View {
+    @Environment(\.managedObjectContext) var moc
     var mediaEntity: MediaEntity
     
-    @FetchRequest private var entity: FetchedResults<MediaEntity>
+    @FetchRequest private var entity: FetchedResults<MediaEntity> //needed so that notes will reload immediately after adding them
     @State private var isAddingNote = false
+    @State private var isEditingEntity = false
     
     init(mediaEntity: MediaEntity) {
         self.mediaEntity = mediaEntity
@@ -21,8 +23,10 @@ struct MediaEntityDetailView: View {
     
     var body: some View {
         VStack {
-            RatingView(rating: .constant(Int(mediaEntity.rating)))
-                .font(.headline)
+            if mediaEntity.finished {
+                RatingView(rating: .constant(mediaEntity.rating))
+                    .font(.headline)
+            }
             
             Text(mediaEntity.wrappedCreator)
             Text(mediaEntity.wrappedGenre)
@@ -30,7 +34,7 @@ struct MediaEntityDetailView: View {
             List {
                 ForEach(mediaEntity.notesArray) { note in
                     Text(note.wrappedText)
-                }
+                }.onDelete(perform: deleteNote)
             }
             
             Button("Add a note") {
@@ -42,6 +46,37 @@ struct MediaEntityDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isAddingNote) {
             AddNoteView(mediaEntity: entity[0])
+        }
+        .sheet(isPresented: $isEditingEntity) {
+            EditEntityView(mediaEntity)
+        }
+        .toolbar {
+            Button {
+                isEditingEntity = true
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+            
+            Button {
+                moc.delete(mediaEntity)
+                
+                if moc.hasChanges {
+                    try? moc.save()
+                }
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+    }
+    
+    func deleteNote(at offsets: IndexSet) {
+        for index in offsets {
+            let entity = mediaEntity.notesArray[index]
+            moc.delete(entity)
+            
+            if moc.hasChanges {
+                try? moc.save()
+            }
         }
     }
 }

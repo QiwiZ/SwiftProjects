@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @State private var showingAddView = false
+    @State private var isShowingSortingDialog = false
     
     var body: some View {
         TabView {
