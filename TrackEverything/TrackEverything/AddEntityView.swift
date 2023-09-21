@@ -24,7 +24,6 @@ struct AddEntityView: View {
             TextField("Creator", text: $creator)
             TextField("Title", text: $title)
             TextField("Release year", text: $releaseYear)
-                .keyboardType(.decimalPad)
             TextField("Genre", text: $genre)
             Picker("Type", selection: $entityType) {
                 ForEach(entityTypes, id: \.self) {
