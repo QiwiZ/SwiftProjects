@@ -14,52 +14,50 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            Group {
-                NavigationView {
-                  TrackedEntityView(entityType: "Book")
-                        .toolbar {
-                            Button {
-                                showingAddView = true
-                            } label: {
-                                Image(systemName: "plus")
-                            }
+            NavigationView {
+              TrackedEntityView(entityType: "Book")
+                    .toolbar {
+                        Button {
+                            showingAddView = true
+                        } label: {
+                            Image(systemName: "plus")
                         }
-                        .sheet(isPresented: $showingAddView) {
-                            AddEntityView(entityType: "Book")
+                    }
+                    .sheet(isPresented: $showingAddView) {
+                        AddEntityView(entityType: "Book")
+                    }
+            }.tabItem {
+                Label("Books", systemImage: "book")
+            }
+            NavigationView {
+              TrackedEntityView(entityType: "Game")
+                    .toolbar {
+                        Button {
+                            showingAddView = true
+                        } label: {
+                            Image(systemName: "plus")
                         }
-                }.tabItem {
-                    Label("Books", systemImage: "book")
-                }
-                NavigationView {
-                  TrackedEntityView(entityType: "Game")
-                        .toolbar {
-                            Button {
-                                showingAddView = true
-                            } label: {
-                                Image(systemName: "plus")
-                            }
+                    }
+                    .sheet(isPresented: $showingAddView) {
+                        AddEntityView(entityType: "Game")
+                    }
+            }.tabItem {
+                Label("Games", systemImage: "gamecontroller")
+            }
+            NavigationView {
+              TrackedEntityView(entityType: "Movie")
+                    .toolbar {
+                        Button {
+                            showingAddView = true
+                        } label: {
+                            Image(systemName: "plus")
                         }
-                        .sheet(isPresented: $showingAddView) {
-                            AddEntityView(entityType: "Game")
-                        }
-                }.tabItem {
-                    Label("Games", systemImage: "gamecontroller")
-                }
-                NavigationView {
-                  TrackedEntityView(entityType: "Movie")
-                        .toolbar {
-                            Button {
-                                showingAddView = true
-                            } label: {
-                                Image(systemName: "plus")
-                            }
-                        }
-                        .sheet(isPresented: $showingAddView) {
-                            AddEntityView(entityType: "Movie")
-                        }
-                }.tabItem {
-                    Label("Movies", systemImage: "popcorn")
-                }
+                    }
+                    .sheet(isPresented: $showingAddView) {
+                        AddEntityView(entityType: "Movie")
+                    }
+            }.tabItem {
+                Label("Movies", systemImage: "popcorn")
             }
         }
     }

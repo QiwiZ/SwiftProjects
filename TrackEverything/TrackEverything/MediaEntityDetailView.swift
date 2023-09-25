@@ -14,6 +14,7 @@ struct MediaEntityDetailView: View {
     @FetchRequest private var entity: FetchedResults<MediaEntity> //needed so that notes will reload immediately after adding them
     @State private var isAddingNote = false
     @State private var isEditingEntity = false
+    @State private var isDeleting = false
     
     init(mediaEntity: MediaEntity) {
         self.mediaEntity = mediaEntity
@@ -36,14 +37,21 @@ struct MediaEntityDetailView: View {
             List {
                 ForEach(mediaEntity.notesArray) { note in
                     Text(note.wrappedText)
-                }.onDelete(perform: deleteNote)
+                        .listRowBackground(Color(red: 0.1, green: 0.1, blue: 0.2))
+                        .listRowSeparatorTint(Color(red: 1, green: 0.8, blue: 0.2))
+                        .foregroundColor(.white)
+                }
+                .onDelete(perform: deleteNote)
             }
+            .listStyle(.plain)
+            .background(.darkBackground)
             
             Button("Add a note") {
                 isAddingNote = true
             }
             
         }
+        .background(.darkBackground)
         .navigationTitle(mediaEntity.wrappedTitle)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isAddingNote) {
@@ -60,14 +68,24 @@ struct MediaEntityDetailView: View {
             }
             
             Button {
+                isDeleting = true
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+        .alert("Are you sure you want to delete \(mediaEntity.wrappedTitle)?", isPresented: $isDeleting) {
+            Button("Delete") {
                 moc.delete(mediaEntity)
                 
                 if moc.hasChanges {
                     try? moc.save()
                 }
-            } label: {
-                Label("Delete", systemImage: "trash")
             }
+            Button("Cancel") {
+                isDeleting = false
+            }
+        } message: {
+            Text("This cannot be undone.")
         }
     }
     

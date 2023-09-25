@@ -50,7 +50,8 @@ struct ContentView: View {
                             }
                         }
                     }.padding([.horizontal, .bottom])
-                }.navigationTitle("Moonshot")
+                }
+                    .navigationTitle("Moonshot")
                     .background(.darkBackground)
                     .preferredColorScheme(.dark)
                     .toolbar {
@@ -84,11 +85,10 @@ struct ContentView: View {
                             }.clipShape(RoundedRectangle(cornerRadius: 10))
                                 .overlay(RoundedRectangle(cornerRadius: 10).stroke(.lightBackground))
                     }
-                        .background(.darkBackground)
+                        .listRowBackground(Color(red: 0.1, green: 0.1, blue: 0.2))
                 }
                 .navigationTitle("Moonshot")
                 .listStyle(.plain)
-                .listRowBackground(Color.darkBackground)
                 .preferredColorScheme(.dark)
                 .background(.darkBackground)
                 .toolbar {

@@ -16,7 +16,7 @@ struct TrackedEntityView: View {
     @State private var isShowingSortingDialog = false
     
     enum SortType {
-        case genre, title, ratingAsc, ratingDesc
+        case creator, genre, title, ratingAsc, ratingDesc
     }
     
     @State private var sorting: SortType = .title
@@ -33,6 +33,10 @@ struct TrackedEntityView: View {
         }
         
         switch sorting {
+        case .creator:
+            return filtered.sorted {
+                $0.wrappedCreator < $1.wrappedCreator
+            }
         case .genre:
             return filtered.sorted {
                 $0.wrappedGenre < $1.wrappedGenre
@@ -68,20 +72,22 @@ struct TrackedEntityView: View {
                                 .foregroundColor(.red)
                         }
                         Text(entity.wrappedTitle)
+                            .foregroundColor(.white)
                         Spacer()
                         if entity.finished {
                             RatingView(rating: .constant(entity.rating))
                                 .allowsHitTesting(false)
                         }
                     }
-                }.swipeActions(edge: .trailing) {
+                }
+                .listRowBackground(Color(red: 0.1, green: 0.1, blue: 0.2))
+                .listRowSeparatorTint(Color(red: 1, green: 0.8, blue: 0.2))
+                .swipeActions(edge: .trailing) {
                     if entity.finished {
                         Button {
                             entity.finished.toggle()
                             entity.rating = 0
-                            if moc.hasChanges {
-                                try? moc.save()
-                            }
+                            saveChanges()
                         } label: {
                             Label("Unmark finished", systemImage: "xmark.circle")
                         }.tint(.blue)
@@ -90,9 +96,7 @@ struct TrackedEntityView: View {
                             entity.finished.toggle()
                             entityToRate = entity
                             isShowingRatingAlert = true
-                            if moc.hasChanges {
-                                try? moc.save()
-                            }
+                            saveChanges()
                         } label: {
                             Label("Mark finished", systemImage: "checkmark.circle")
                         }.tint(.green)
@@ -100,9 +104,7 @@ struct TrackedEntityView: View {
                     
                     Button {
                         moc.delete(entity)
-                        if moc.hasChanges {
-                            try? moc.save()
-                        }
+                        saveChanges()
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }.tint(.red)
@@ -111,18 +113,14 @@ struct TrackedEntityView: View {
                     if entity.favourite {
                         Button {
                             entity.favourite.toggle()
-                            if moc.hasChanges {
-                                try? moc.save()
-                            }
+                            saveChanges()
                         } label: {
                             Label("Unmark favourite", systemImage: "heart.slash.fill")
                         }.tint(.red)
                     } else {
                         Button {
                             entity.favourite.toggle()
-                            if moc.hasChanges {
-                                try? moc.save()
-                            }
+                            saveChanges()
                         } label: {
                             Label("Mark favourite", systemImage: "heart.fill")
                         }.tint(.yellow)
@@ -140,11 +138,20 @@ struct TrackedEntityView: View {
                 Label("Sort", systemImage: "line.3.horizontal.decrease.circle")
             }
         }
-        .confirmationDialog("", isPresented: $isShowingSortingDialog) {
+        .confirmationDialog("Sort by", isPresented: $isShowingSortingDialog) {
             Button("Title"){ sorting = .title}
             Button("Rating ↑"){ sorting = .ratingAsc }
             Button("Rating ↓"){ sorting = .ratingDesc }
             Button("Genre"){ sorting = .genre }
+            Button("Creator"){ sorting = .creator }
+        }
+        .listStyle(.plain)
+        .background(.darkBackground)
+    }
+    
+    func saveChanges() {
+        if moc.hasChanges {
+            try? moc.save()
         }
     }
 }

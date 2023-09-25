@@ -26,6 +26,7 @@
 		4BC289DE2AB26DF6000BD5F2 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289DD2AB26DF6000BD5F2 /* AddNoteView.swift */; };
 		4BC289E02ABA4EDA000BD5F2 /* EditEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289DF2ABA4EDA000BD5F2 /* EditEntityView.swift */; };
 		4BC289E42ABBAC3A000BD5F2 /* RatingAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289E32ABBAC3A000BD5F2 /* RatingAlertView.swift */; };
+		4BC289E62ABF9B5E000BD5F2 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC289E52ABF9B5E000BD5F2 /* Color-Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		4BC289DD2AB26DF6000BD5F2 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		4BC289DF2ABA4EDA000BD5F2 /* EditEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntityView.swift; sourceTree = "<group>"; };
 		4BC289E32ABBAC3A000BD5F2 /* RatingAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAlertView.swift; sourceTree = "<group>"; };
+		4BC289E52ABF9B5E000BD5F2 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				4BC289DD2AB26DF6000BD5F2 /* AddNoteView.swift */,
 				4BC289DF2ABA4EDA000BD5F2 /* EditEntityView.swift */,
 				4BC289C12AAFAEEB000BD5F2 /* TrackedEntityView.swift */,
+				4BC289E52ABF9B5E000BD5F2 /* Color-Theme.swift */,
 				4BC289E32ABBAC3A000BD5F2 /* RatingAlertView.swift */,
 				4BC289C92AB1025B000BD5F2 /* EntityGenres.json */,
 				4BC289C32AAFB5FB000BD5F2 /* AddEntityView.swift */,
@@ -188,6 +191,7 @@
 				4B9052FB2AA8E65C00A4B0F3 /* MediaEntity+CoreDataClass.swift in Sources */,
 				4BC289DC2AB26A92000BD5F2 /* Note+CoreDataProperties.swift in Sources */,
 				4BC289C22AAFAEEB000BD5F2 /* TrackedEntityView.swift in Sources */,
+				4BC289E62ABF9B5E000BD5F2 /* Color-Theme.swift in Sources */,
 				4B90527C2A9D861F00A4B0F3 /* TrackEverythingApp.swift in Sources */,
 				4BC289C42AAFB5FB000BD5F2 /* AddEntityView.swift in Sources */,
 				4B9052D42AA7977300A4B0F3 /* MediaEntityDetailView.swift in Sources */,

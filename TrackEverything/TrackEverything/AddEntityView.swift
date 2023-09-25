@@ -59,10 +59,13 @@ struct AddEntityView: View {
                         try? moc.save()
                         dismiss()
                     }
-                }.disabled(!isValidEntry())
+                }
+                .disabled(!isValidEntry())
             }
         }
         .navigationTitle("Track new entry")
+        .background(.darkBackground)
+        .scrollContentBackground(.hidden)
     }
     
     func isValidCreator() -> Bool {
