@@ -60,7 +60,7 @@ struct ContentView: View {
                 Label("Movies", systemImage: "popcorn")
             }
         }
-        .tint(.greenUiElements)
+        .tint(.yellowHighlights)
         .preferredColorScheme(.dark)
     }
 }
