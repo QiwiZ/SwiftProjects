@@ -73,6 +73,8 @@ struct EditEntityView: View {
             }
         }
         .navigationTitle("Track new entry")
+        .background(.darkBackground)
+        .scrollContentBackground(.hidden)
     }
     
     func isValidCreator() -> Bool {

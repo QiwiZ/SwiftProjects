@@ -4,7 +4,7 @@
 //
 //  Created by Julian Saxl on 2023-08-28.
 //
-
+import UIKit
 import SwiftUI
 
 struct ContentView: View {
@@ -60,6 +60,8 @@ struct ContentView: View {
                 Label("Movies", systemImage: "popcorn")
             }
         }
+        .tint(.greenUiElements)
+        .preferredColorScheme(.dark)
     }
 }
 

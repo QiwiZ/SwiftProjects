@@ -37,8 +37,8 @@ struct MediaEntityDetailView: View {
             List {
                 ForEach(mediaEntity.notesArray) { note in
                     Text(note.wrappedText)
-                        .listRowBackground(Color(red: 0.1, green: 0.1, blue: 0.2))
-                        .listRowSeparatorTint(Color(red: 1, green: 0.8, blue: 0.2))
+                        .listRowBackground(Color.darkBackground)
+                        .listRowSeparatorTint(.yellowHighlights)
                         .foregroundColor(.white)
                 }
                 .onDelete(perform: deleteNote)

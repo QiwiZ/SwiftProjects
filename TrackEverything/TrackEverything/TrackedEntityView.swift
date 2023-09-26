@@ -80,8 +80,8 @@ struct TrackedEntityView: View {
                         }
                     }
                 }
-                .listRowBackground(Color(red: 0.1, green: 0.1, blue: 0.2))
-                .listRowSeparatorTint(Color(red: 1, green: 0.8, blue: 0.2))
+                .listRowBackground(Color.darkBackground)
+                .listRowSeparatorTint(.yellowHighlights)
                 .swipeActions(edge: .trailing) {
                     if entity.finished {
                         Button {
@@ -101,13 +101,6 @@ struct TrackedEntityView: View {
                             Label("Mark finished", systemImage: "checkmark.circle")
                         }.tint(.green)
                     }
-                    
-                    Button {
-                        moc.delete(entity)
-                        saveChanges()
-                    } label: {
-                        Label("Delete", systemImage: "trash")
-                    }.tint(.red)
                 }
                 .swipeActions(edge: .leading) {
                     if entity.favourite {

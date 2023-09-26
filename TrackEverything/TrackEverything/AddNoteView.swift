@@ -22,6 +22,8 @@ struct AddNoteView: View {
                 addNote()
             }
         }
+        .background(.darkBackground)
+        .scrollContentBackground(.hidden)
     }
     
     func addNote() {
